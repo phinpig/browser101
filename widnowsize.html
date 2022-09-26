@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="tag">
+
+    </div>
+
+    <script>
+        const tag = document.querySelector('.tag'); 
+
+        window.addEventListener('resize',sizeView);
+
+        function sizeView(){
+            tag.innerHTML = `
+                window.screen : ${window.screen.width},${window.screen.height}<br>                 
+                window.outer : ${window.outerWidth},${window.outerHeight}<br>       
+                windw.inner :${window.innerWidth},${window.innerHeight}<br>
+                documentdocumentElement.clientWidth:${document.documentElement.clientWidth},${document.documentElement.clientHeight}
+            `;               
+        }
+        sizeView();
+    </script>
+</body>
+</html>
