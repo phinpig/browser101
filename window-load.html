@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="test.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://naver.com">beforeunload</a>
+    <script>
+        // html만 
+        window.addEventListener('DOMContentLoaded',function(){
+            console.log('DOMContentLoaded');
+        });
+        // after resources (css,image)
+        window.addEventListener('load',()=>{
+            console.log('load');
+        });
+
+        // before unload
+        window.addEventListener('beforeunload',(event)=>{
+//            event.preventDefault(); 
+//            event.returnValue = '';
+        });
+         // resouce is being unloaded
+         window.addEventListener('unload',()=>{
+            alert('나 간다')
+        });
+    </script>
+</body>
+</html>

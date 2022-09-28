@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      
+        body{background-color:#000;cursor:none}
+        .txt{position:fixed;color:#fff;top:50%;left:50%;transform: translate(20px,20px);}
+        .h{position:fixed;top:50%; width:100%;height:1px;background-color:#fff;}
+        .w{position:fixed;left:50%; height:100%;width:1px;background-color:#fff;}
+        img{position: fixed; top:50%;left:50%;transform: translate(-50%,-50%);}
+    </style>
+    <div class="txt"></div>
+    <div class="h"></div>
+    <div class="w"></div>
+    <img src="target.png" alt="">
+
+    <script>
+        
+        const h = document.querySelector('.h');
+        const w = document.querySelector('.w'); 
+        const txt = document.querySelector('.txt'); 
+        const img = document.querySelector('img');
+        window.addEventListener('mouseenter',getMousePointer)
+        window.addEventListener('mousemove',getMousePointer)
+        function getMousePointer(e){      
+            const x=e.clientX;   
+            const y=e.clientY;  
+            //const x=e.pageY;   
+            //const y=e.pageY;   
+            h.style.top= y+'px';
+            w.style.left= x+'px';
+            img.style.top= y+'px';
+            img.style.left= x+'px';
+            txt.style.left = x+'px';
+            txt.style.top = y+'px';
+            txt.innerHTML=`${x}px, ${y}px`;
+        }
+    </script>
+</body>
+</html>
