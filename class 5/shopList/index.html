@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop List</title>
+    <link href="defult.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="shop-area">
+      <header>Shopping List</header>
+      <div class="body">
+        <ul class="list">
+          <!-- <li>
+            우유
+            <button type="button" class="btn-del"><span>삭제</span></button>
+          </li> -->
+        </ul>
+      </div>
+      <form class="shop-form">
+        <div class="input-area">
+          <input
+            class="new-input"
+            type="text"
+            name="text"
+            placeholder="추가할 물건을 입력해주세요"
+          />
+        </div>
+        <div class="bottom">
+          <button type="submit" class="btn-add"><span>추가</span></button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const shopList = document.querySelector('.list');
+      const shopForm = document.querySelector('.shop-form');
+      const newInput = document.querySelector('.new-input');
+      shopForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (newInput.value === '') {
+          alert('추가할 물건을 입력해주세요');
+          newInput.focus();
+        } else {
+          //목록에 추가
+          addShop(newInput.value);
+        }
+        newInput.value = '';
+        newInput.focus();
+      });
+
+      function addShop(item) {
+        const li = document.createElement('li');
+        const button = document.createElement('button');
+        button.classList.add('btn-del');
+        li.textContent = item;
+        li.append(button);
+        shopList.append(li);
+        button.addEventListener('click', (e) => {
+          //console.log(item);
+          const noYes = confirm(`저장하신 ${item}를(을) 목록에서 지울것에요?`);
+          if (noYes) {
+            e.target.parentElement.remove();
+            newInput.value = '';
+            newInput.focs();
+          } else {
+            //console.dir(e);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
