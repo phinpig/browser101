@@ -1,21 +1,22 @@
-# DOM
+# 4.DOM 완전 정복
+## DOM
 https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
 
-# DOM API
+## DOM API
 https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API
 
-# Node
+## Node
 https://developer.mozilla.org/en-US/docs/Web/API/Node
 
-# Event Target
+## Event Target
 https://developer.mozilla.org/en-US/docs/Web/API/EventTarget 
 
-# CSSOM = DOM + CSS
+## CSSOM = DOM + CSS
 https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
 
 
 
-css Triggers 
+## css Triggers 
  https://www.lmame-geek.com/css-triggers/
 
  node => EventTarget
@@ -28,5 +29,11 @@ critical rendering path
 |DOM -> CSSOM-> RenderTree| layout>paing>composition |
 |Construction|Opeation|
 |tiem to first render||
+
+
+
+# 5. FontAwesome
+https://fontawesome.com/
+https://www.youtube.com/watch?v=X91jsJyZofw&feature=youtu.be&t=340
 
    
