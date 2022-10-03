@@ -45,8 +45,10 @@
           //목록에 추가
           addShop(newInput.value);
         }
+        shopList.scrollIntoView({ block: 'end' });
         newInput.value = '';
         newInput.focus();
+        //return; 포커스 자리에 감
       });
 
       function addShop(item) {
@@ -56,15 +58,14 @@
         li.textContent = item;
         li.append(button);
         shopList.append(li);
+        // 새로 추가된 아이템으로 스크롤링;
+
         button.addEventListener('click', (e) => {
           //console.log(item);
           const noYes = confirm(`저장하신 ${item}를(을) 목록에서 지울것에요?`);
           if (noYes) {
             e.target.parentElement.remove();
-            newInput.value = '';
-            newInput.focs();
-          } else {
-            //console.dir(e);
+            //li.remove(); <= 이것이 더 좋음...
           }
         });
       }

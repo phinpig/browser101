@@ -21,7 +21,8 @@ body{background-color:antiquewhite
     background-color:#fff;
 }
 .shop-area .list{
-    margin:20px;
+    padding:20px;
+    min-height:200px;
 }
 .shop-area .list li{
     display:flex;
