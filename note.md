@@ -32,8 +32,17 @@ critical rendering path
 
 
 
-# 5. FontAwesome
+# 5. DOM 완전 정복 실전
+## FontAwesome
 https://fontawesome.com/
 https://www.youtube.com/watch?v=X91jsJyZofw&feature=youtu.be&t=340
 
-   
+## CSS Gradient
+
+https://cssgradient.io/
+
+## Box Shadow CSS Generator
+https://html-css-js.com/css/generator/box-shadow/  
+
+## 칼러 조함
+https://color.adobe.com/ko/create/color-wheel
