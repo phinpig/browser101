@@ -46,3 +46,10 @@ https://html-css-js.com/css/generator/box-shadow/
 
 ## 칼러 조함
 https://color.adobe.com/ko/create/color-wheel
+
+keyup, keydown에 대해서
+keypress 지원하지 않음
+
+## form
+튜토리얼: https://developer.mozilla.org/en-US/docs/Learn/Forms
+form 태그: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
