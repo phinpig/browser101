@@ -39,36 +39,41 @@
       const newInput = document.querySelector('.new-input');
       shopForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (newInput.value === '') {
-          alert('추가할 물건을 입력해주세요');
-        } else {
-          //목록에 추가
+        if (newInput.value !== '') {
           addShop(newInput.value);
+          shopList.scrollIntoView({ block: 'end' });
         }
-        // 새로 추가된 아이템으로 스크롤링;
-        shopList.scrollIntoView({ block: 'end' });
         newInput.value = '';
         newInput.focus();
         //return; 포커스 자리에 감
       });
 
+      let id = 0;
       function addShop(item) {
         const li = document.createElement('li');
-        const button = document.createElement('button');
-        button.classList.add('btn-del');
-        li.textContent = item;
-        li.append(button);
+        li.setAttribute('data-id', id);
+        li.innerHTML = `            
+                <span class="item">${item}</span>
+                <button type="button" data-id="${id}" class="btn-del"><span>삭제</span></button>            
+        `;
+        id++;
         shopList.append(li);
-
-        button.addEventListener('click', (e) => {
-          //console.log(item);
-          const noYes = confirm(`저장하신 ${item}를(을) 목록에서 지울것에요?`);
-          if (noYes) {
-            e.target.parentElement.remove();
-            //li.remove(); <= 이것이 더 좋음...
-          }
-        });
       }
+      shopList.addEventListener('click', (e) => {
+        const id = e.target.dataset.id;
+        if (id) {
+          const idDel = document.querySelector(`li[data-id="${id}"]`);
+          idDel.remove();
+        }
+      });
+      // shopList.addEventListener('click', (e) => {
+      //
+      //     const noYes = confirm(`저장하신 ${item}를(을) 목록에서 지울것에요?`);
+      //     if (noYes) {
+      //       e.target.parentElement.remove();
+      //     }
+      //
+      // });
     </script>
   </body>
 </html>

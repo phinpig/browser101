@@ -37,6 +37,7 @@ body{background-color:antiquewhite
     clip: rect(1px, 1px, 1px, 1px);}
 .shop-area .btn-del{width:20px;text-align:center}
 .shop-area .btn-del:before{content:'🗑';font-size:24px; font-weight: bold;}
+.shop-area .btn-del:hover{color:red;cursor:pointer}
 .shop-area .input-area{background-color:#fff}
 .shop-area .input-area input{padding:10px;height:30px;border:0;width:100%;}
 .shop-area .bottom{display:flex;justify-content: center;align-items: center;}
