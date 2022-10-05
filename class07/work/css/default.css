@@ -1,0 +1,51 @@
+*{
+    margin:0;padding:0;border:0;
+    background-color:transparent;
+    box-sizing: border-box;
+}
+button{cursor:pointer}
+body{height:100vh;}
+body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.bg{        
+    position:relative;
+    width:1080px;
+    height:608px;    
+    background:url(../img/background.png) 0 0 no-repeat;
+    background-size:100% auto;
+}
+
+.start-area{
+    display:flex;
+    position:absolute;
+    top:10px; left:50%;
+    transform: translateX(-50%);
+    align-items: center;
+    flex-direction: column;
+}
+.start-area > span{
+    display:block;text-align:center;margin-top:10px;
+    border:3px solid #000;
+
+}
+.start-area button{    
+    display:flex;
+    justify-content: center;    
+    width:50px;height:50px;
+    background:rgb(219, 187, 41)  ;
+    line-height:40px;
+    font-size:30px;
+    border:3px solid #000;
+    border-radius: 5px;        
+    transition: transform 0.5s ease;
+}
+.start-area span:first-child{height:50px;border:0;}
+.start-area .btn-stop{display:none;font-size:20px;}
+.start-area button:hover{
+    transform: scale(1.1);
+}
+.time{width:150px;height:50px;line-height:43px;font-size:30px;background-color:#ffff; border:3px solid #000;font-weight:bold;    border-radius: 5px; }
+.pickup{ width:60px;height:60px;border-radius: 50%;background-color:coral;color:#fff;font-size:30px;line-height:30px;line-height:47px;}
