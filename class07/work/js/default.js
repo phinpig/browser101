@@ -8,6 +8,7 @@ const timeArea = document.querySelector('.time');
 const startButton = document.querySelector('.btn-start');
 const stopButton = document.querySelector('.btn-stop');
 let time = false;
+
 startButton.addEventListener('click', startGame);
 stopButton.addEventListener('click', stopGame);
 // 타이머 설정
@@ -30,7 +31,7 @@ function startGame() {
     startButton.style.display = 'none';
     stopButton.style.display = 'block';
     countWatch(4); // 남은 시간(초)
-    randomItem();
+    randomItem(10, 7); // 당근 수, 벌레 수
 }
 function endGame() {
     stopButton.style.display = 'none';
@@ -39,12 +40,17 @@ function endGame() {
 
 function stopGame() {
     endGame();
+    failAlert();
 }
 // 당근/벌레 클릭시 (숫자빼기, 당근 없애기, 벌레 선택시 실패)
 
 // 랜덤하게 벌레/당근 배치
-function randomItem() {
-    console.log('랜덤 배치');
+function randomItem(carrots = 10, bugs = 5) {
+    const width = document.querySelector('.bg').offsetWidth;
+    const heigh = document.querySelector('.bg').style.height / 2;
+    const x = Math.random() * width;
+    const y = Math.random() * heigh + heigh;
+    console.log(x, y);
 }
 // 배경음악,당근, 벌레 클릭시, 게임완료, 실패시 사운드
 function soundBg() {
@@ -64,11 +70,11 @@ function soundFail() {
 }
 // 성공/실패시 나오는 창, 닫기
 function winAlert() {
-    console.log('성공');
+    alert('성공');
 }
 function failAlert() {
-    console.log('실패');
+    alert('실패');
 }
 function closeAlert() {
-    console.log('닫기');
+    alert('닫기');
 }
