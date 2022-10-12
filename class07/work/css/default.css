@@ -5,17 +5,14 @@
 }
 button{cursor:pointer}
 body{height:100vh;background-color:#000}
-body{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
+ 
 .bg{        
-    position:relative;
+    position:absolute; top:50%;left:50%; transform: translate(-50%,-50%);
     width:1080px;
     height:608px;    
     background:url(../img/background.png) 0 0 no-repeat;
     background-size:100% auto;
+    overflow:hidden;border-radius: 20px;
 }
 .bg img{position:absolute; transition: transform 0.1s ease;cursor:pointer }
 .bg img:hover{transform: scale(1.1);}

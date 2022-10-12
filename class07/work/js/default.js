@@ -12,17 +12,29 @@ const displayPickUp = document.querySelector('.pickup');
 const picWidth = picture.offsetWidth;
 const picHeight = picture.offsetHeight;
 let time = false;
-
+let currentPlay = true;
 startButton.addEventListener('click', startGame);
-stopButton.addEventListener('click', stopGame);
+stopButton.addEventListener('click', stopAlert);
 picture.addEventListener('click', pickUpCarrot);
+
+class SoundSetting {
+  constructor() {
+    this.bg = new Audio('sound/bg.mp3');
+    this.fail = new Audio('sound/alert.wav');
+    this.bug = new Audio('sound/bug_pull.mp3');
+    this.carrot = new Audio('sound/carrot_pull.mp3');
+    this.success = new Audio('sound/game_win.mp3');
+  }
+}
+const sound = new SoundSetting();
+
 // 타이머 설정
 function countWatch(ele) {
   viewTime(ele);
   time = setInterval(() => {
-    // console.log(ele);
     if (!ele) {
-      endGame();
+      //0이면 실패
+      msgAlert(false);
     }
     viewTime(ele--);
   }, 1000);
@@ -32,23 +44,17 @@ function countWatch(ele) {
 function viewTime(ele) {
   timeArea.innerHTML = '00:' + new String(ele).padStart(2, 0);
 }
+
 function startGame() {
+  currentPlay = true;
   startButton.style.display = 'none';
   stopButton.style.display = 'block';
   while (picture.hasChildNodes()) {
     picture.removeChild(picture.firstChild);
   }
   countWatch(4); // 남은 시간(초)
-  randomItem(10, 7); // 당근 수, 벌레 수
-}
-function endGame() {
-  stopButton.style.display = 'none';
-  clearInterval(time);
-}
-
-function stopGame() {
-  endGame();
-  failAlert();
+  randomItem(2, 7); // 당근 수, 벌레 수
+  sound.bg.play();
 }
 
 // 랜덤하게 벌레/당근 위치시키기
@@ -82,46 +88,41 @@ function insertItem(carrotYn = true) {
 // 당근/벌레 클릭시 (숫자빼기, 당근 없애기, 벌레 선택시 실패)
 function pickUpCarrot(e) {
   const obj = e.target;
-  const num = displayPickUp.innerText;
-
-  if (obj.tagName === 'IMG') {
+  let num = displayPickUp.innerText;
+  // currentPlay :true 게임중, false:게임실패 / 승리
+  if (obj.tagName === 'IMG' && currentPlay) {
     if (eval(obj.dataset.id)) {
-      //
       e.target.remove();
+      sound.carrot.play();
+      num--;
+      displayPickUp.innerText = num;
       if (num === 0) {
-        winAlert();
-      } else {
-        displayPickUp.innerText = num - 1;
+        msgAlert(true);
       }
     } else {
-      failAlert();
+      sound.bug.play();
+      msgAlert(false);
     }
   }
 }
-// 배경음악,당근, 벌레 클릭시, 게임완료, 실패시 사운드
-function soundBg() {
-  console.log('음악배경');
-}
-function soundCarrot() {
-  console.log('음악당근');
-}
-function soundBug() {
-  console.log('음악벌레');
-}
-function soundSuccess() {
-  console.log('음악성공');
-}
-function soundFail() {
-  console.log('음악실패');
-}
+
 // 성공/실패시 나오는 창, 닫기
-function winAlert() {
-  soundSuccess();
-  console.log('성공팝업');
+function msgAlert(type) {
+  currentPlay = false;
+  sound.bg.pause();
+  stopButton.style.display = 'none';
+  clearInterval(time);
+
+  if (type) {
+    sound.success.play();
+    console.log('성공팝업');
+  } else {
+    sound.fail.play();
+    console.log('실패팝업');
+  }
 }
-function failAlert() {
-  soundFail();
-  console.log('실패팝업');
+function stopAlert() {
+  msgAlert(false);
 }
 function closeAlert() {
   alert('닫기');
