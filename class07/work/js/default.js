@@ -16,6 +16,10 @@ const picHeight = picture.offsetHeight;
 const timer = 10;
 const bugs = 10;
 const carrots = 8;
+const msgFail = 'Yout Lost';
+const msgWin = 'You Win';
+const msgReplay = 'Replay ❓';
+
 let displayMsg = document.querySelector('.msg');
 let time = false;
 let currentPlay = true;
@@ -42,7 +46,7 @@ function countWatch(ele) {
     time = setInterval(() => {
         if (!ele) {
             //0이면 실패
-            msgAlert(false);
+            msgAlert(false, msgFail);
         }
         viewTime(ele--);
     }, 1000);
@@ -105,11 +109,11 @@ function pickUpCarrot(e) {
             num--;
             displayPickUp.innerText = num;
             if (num === 0) {
-                msgAlert(true, 'You Win');
+                msgAlert(true, msgWin);
             }
         } else {
             sound.bug.play();
-            msgAlert(false, 'Yout Lost');
+            msgAlert(false, msgFail);
         }
     }
 }
@@ -130,7 +134,7 @@ function msgAlert(type, msg) {
     displayMsg.innerText = msg;
 }
 function stopAlert() {
-    msgAlert(false, 'Replay ❓');
+    msgAlert(false, msgReplay);
 }
 function replayStart() {
     popup.style.visibility = 'hidden';
