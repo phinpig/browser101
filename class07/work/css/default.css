@@ -55,5 +55,6 @@ body{height:100vh;background-color:#000}
     left:50%;top:50%; transform: translate(-50%,100px);
     width:400px;padding:30px 0;
 }
-.popup .replay{ text-align:center;font-size:50px}
+.popup .replay{ text-align:center;font-size:50px;transition: transform 0.1s ease;}
+.popup .replay:hover{transform: scale(1.1);}
 .popup .msg{color:#fff; font-size:30px;}
