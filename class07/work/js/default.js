@@ -48,7 +48,7 @@ function countWatch(ele) {
             //0이면 실패
             msgAlert(false, msgFail);
         }
-        viewTime(ele--);
+        viewTime(--ele);
     }, 1000);
 }
 // 시간 보이기
