@@ -130,19 +130,16 @@ function msgAlert(type, msg) {
     } else {
         sound.fail.play();
     }
-    popup.style.visibility = 'visible';
+    popup.style.display = 'block';
     displayMsg.innerText = msg;
 }
 function stopAlert() {
     msgAlert(false, msgReplay);
 }
 function replayStart() {
-    popup.style.visibility = 'hidden';
+    popup.style.display = 'none';
     displayMsg.innerText = '';
     displayTime.innerText = '00:00';
     displayPickUp.innerText = '0';
     startButton.style.display = 'block';
-}
-function closeAlert() {
-    alert('닫기');
 }
