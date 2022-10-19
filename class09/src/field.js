@@ -1,10 +1,15 @@
 'use strict';
 import * as sound from './sound.js';
 const CARROT_SIZE = 80;
+
 function randomNumber(min, max) {
     return Math.random() * (max - min) + min;
 }
-export default class Field {
+export const itemType = Object.freeze({
+    carrot: 'carrot',
+    bug: 'bug',
+});
+export class Field {
     constructor(carrotCount, bugCount) {
         this.carrot_count = carrotCount;
         this.bug_count = bugCount;
@@ -44,9 +49,9 @@ export default class Field {
         if (target.matches('.carrot')) {
             target.remove();
             sound.playCarrot();
-            this.onItemClick && this.onItemClick('carrot');
+            this.onItemClick && this.onItemClick(itemType.carrot);
         } else if (target.matches('.bug')) {
-            this.onItemClick && this.onItemClick('bug');
+            this.onItemClick && this.onItemClick(itemType.bug);
         }
     };
 }

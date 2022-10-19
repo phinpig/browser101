@@ -22,6 +22,9 @@ export function playBackground() {
 export function stopBackground() {
     stopSound(bgSound);
 }
+export function aaa() {
+    alert('test');
+}
 function playSound(sound) {
     sound.currentTime = 0;
     sound.play();
