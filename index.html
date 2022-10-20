@@ -18,12 +18,18 @@
         <div id="test">dfsfsf</div>
         <script>
             const element = document.querySelector('#test');
+            //element.animate([{ backgroundColor: '#fff' }, { backgroundColor: '#000' }], 1000);
             element.animate(
+                [
+                    { transform: 'translateX(0px)' },
+                    { transform: 'translateX(200px)', offset: '0.9' },
+                    { transform: 'translateY(400px)', offset: '1' },
+                    { transform: 'translateX(600px)' },
+                ],
                 {
-                    opacity: [0, 1], // [ from, to ]
-                    color: ['#fff', '#000'], // [ from, to ]
-                },
-                2000
+                    duration: 2000,
+                    fill: 'forwards',
+                }
             );
         </script>
     </body>
