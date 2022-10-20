@@ -28,6 +28,11 @@ node => EventTarget
 
 critical rendering path
 
+한글
+
+http://www.devdic.com/
+https://ko.javascript.info/
+
 성능보장 랜더링 순서
 |request/response -> loading->scripting-> |rendering->layout->painting |
 |---|---|
@@ -51,11 +56,13 @@ https://cssgradient.io/
 https://html-css-js.com/css/generator/box-shadow/
 
 ## 칼러 조함
+
 https://color.adobe.com/ko/create/color-wheel
 
 keyup, keydown에 대해서
 keypress 지원하지 않음
 
 ## form
+
 튜토리얼: https://developer.mozilla.org/en-US/docs/Learn/Forms
 form 태그: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
